@@ -1,0 +1,427 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1rem 2rem;
+  background-color: rgba(34, 34, 34, 0.9); /* Slight transparency */
+  color: #fff;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  color: #ffffff; /* Changed logo color to white for better contrast */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 30px;
+  margin-left: -100px;
+}
+
+header nav a {
+  color: #ddd;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s, transform 0.2s;
+}
+
+header nav a:hover {
+  color: #46bee2;
+  transform: scale(1.1);
+}
+
+header .auth-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 13px;
+  border-radius: 50px; /* Fully rounded buttons */
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Log In Button */
+header .auth-buttons a.login {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Vibrant gradient */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+header .auth-buttons a.login:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Sign Up Button */
+header .auth-buttons a.signup {
+  background: linear-gradient(135deg, #ff512f, #dd2476); /* Warm gradient */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+header .auth-buttons a.signup:hover {
+  background: linear-gradient(135deg, #dd2476, #ff512f);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle Ripple Effect */
+header .auth-buttons a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 1;
+}
+
+header .auth-buttons a:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Text Over Ripple */
+header .auth-buttons a span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Page Background */
+.page {
+  height: 100vh;
+  background: 
+    url(layered-waves-haikei.svg) no-repeat center center/cover, 
+    linear-gradient(135deg, #002b45, #024059, #116078);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.page h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+button a {
+  text-decoration: none;
+  color: #ffffff;
+}
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #000000;
+  border-right: 0.125rem solid #000;
+  transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+  background: #000000;
+  transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+  color: #000000;
+}
+.products {
+  padding: 5rem 2rem; /* Increased padding for a spacious layout */
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #e8f5ff, #d4eafc); /* Softer gradient for a professional feel */
+  text-transform: capitalize;
+  border-top: 4px solid #46bee2; /* More prominent accent border */
+  border-bottom: 4px solid #46bee2;
+}
+
+.products h2 {
+  font-size: 3rem; /* Even larger headline for focus */
+  font-weight: bold;
+  color: #2b67c8;
+  margin-bottom: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Stronger shadow for standout text */
+}
+
+.prod-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Dynamic spacing between cards */
+}
+
+.prod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  margin: 1.5rem;
+  padding: 2rem;
+  border: 2px solid #ddd;
+  border-radius: 20px; /* More rounded corners */
+  width: 300px; /* Wider cards for richer content */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Elevated shadow for depth */
+  transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s;
+  overflow: hidden; /* Clipping for animations */
+  position: relative;
+}
+
+.prod:hover {
+  transform: translateY(-15px) scale(1.02); /* Enhanced hover scaling */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* More dramatic shadow on hover */
+  border-color: #46bee2;
+}
+
+.prod img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger image shadow */
+  transition: transform 0.3s ease;
+}
+
+.prod:hover img {
+  transform: scale(1.1); /* Subtle zoom on hover */
+}
+
+.prod h3 {
+  font-size: 1.8rem; /* Larger product name */
+  color: #333;
+  margin: 1.5rem 0 1rem;
+}
+
+.prod p {
+  font-size: 1.2rem; /* Increased font size for readability */
+  color: #666; /* Softer text color */
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.prod .price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2b67c8;
+  margin-bottom: 1rem;
+}
+
+.prod button {
+  background: linear-gradient(135deg, #46bee2, #2b67c8);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px;
+  font-size: 1.2rem; /* Larger button text */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.prod button:hover {
+  background: linear-gradient(135deg, #2b67c8, #46bee2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Interactive Ribbon */
+.prod .ribbon {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: #46bee2;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(-45deg);
+  border-radius: 3px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .prod {
+    width: 90%; /* Full width on smaller screens */
+    margin: 1rem auto;
+  }
+
+  .products h2 {
+    font-size: 2.4rem; /* Smaller headline on smaller devices */
+  }
+}
+
+.About {
+  text-transform: capitalize;
+  padding: 3rem 2rem; /* Added more padding for better spacing */
+  background: #f9f9f9; /* Soft gray for a modern look */
+  text-align: center;
+  border-top: 3px solid #46bee2; /* Accent border for separation */
+  border-bottom: 3px solid #46bee2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.About h2 {
+  font-size: 2.6rem; /* Larger headline */
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+}
+
+.About p {
+  margin: 1.5rem auto;
+  font-size: 1.2rem; /* Slightly larger font for readability */
+  color: #555; /* Softer text color */
+  line-height: 1.6;
+  max-width: 800px; /* Restricts text width for better readability */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem; /* Increased padding for balance */
+  text-align: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a grounded effect */
+  border-top: 3px solid #46bee2; /* Matches the theme's accent */
+}
+
+footer a {
+  color: #46bee2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+footer a:hover {
+  color: #2b67c8; /* Slightly darker blue on hover */
+  text-shadow: 0 2px 4px rgba(70, 190, 226, 0.6); /* Subtle glow effect */
+}
+
+footer p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+footer .social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer .social-icons a {
+  color: #46bee2;
+  font-size: 1.4rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #2b67c8;
+  transform: scale(1.2);
+}
